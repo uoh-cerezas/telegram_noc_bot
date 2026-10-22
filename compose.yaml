@@ -1,0 +1,13 @@
+services:
+  telegram-noc-bot:
+    build: .
+    container_name: telegram-noc-bot
+    environment:
+      TELEGRAM_MODE: ${TELEGRAM_MODE:-live}
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:?set TELEGRAM_BOT_TOKEN}
+      TELEGRAM_ALLOWED_USER_IDS: ${TELEGRAM_ALLOWED_USER_IDS:?set TELEGRAM_ALLOWED_USER_IDS}
+      NOC_API_URL: ${NOC_API_URL:-http://host.docker.internal:8060}
+      NOC_REQUEST_TIMEOUT: ${NOC_REQUEST_TIMEOUT:-180}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped

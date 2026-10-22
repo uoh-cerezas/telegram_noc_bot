@@ -1,0 +1,10 @@
+.git
+.venv
+__pycache__
+tests
+.env
+.env.local
+.env.production
+*.py[cod]
+.git
+*.env

@@ -1,0 +1,11 @@
+services:
+  telegram-noc-bot:
+    networks:
+      - fic-app-network
+    environment:
+      NOC_API_URL: ${NOC_API_URL:-http://ttn-noc:8060}
+
+networks:
+  fic-app-network:
+    external: true
+    name: ${NOC_DOCKER_NETWORK:-FIC-app-network}
