@@ -18,7 +18,8 @@ pipeline.
 ```
 
 `/sensors` returns a compact summary grouped by TTN application
-(beneficiario/campo). Use `/sensor <device_id>` for one sensor's detail.
+(beneficiario/campo) and includes only sensors with valid GPS coordinates.
+Use `/sensor <device_id>` for one located sensor's detail.
 
 The bot is read-only: it does not generate reports, modify sensors, restart
 gateways or write to databases.
