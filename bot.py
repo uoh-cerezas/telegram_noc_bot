@@ -62,7 +62,11 @@ def build_application(settings: Settings):
         text = update.effective_message.text or "/help"
         response = execute(text, client)
         for chunk in response_chunks(response):
-            await update.effective_message.reply_text(chunk, parse_mode=ParseMode.HTML)
+            await update.effective_message.reply_text(
+                chunk,
+                parse_mode=ParseMode.HTML,
+                disable_web_page_preview="google.com/maps" in chunk,
+            )
 
     for name in ("start", "help", "status", "gateways", "sensors", "sensor", "gateway", "alerts"):
         application.add_handler(CommandHandler(name, command))
